@@ -21,8 +21,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: true
-          submodules-recursive: true
+          submodules: recursive          # ← FIXED: was submodules-recursive
+          token: ${{ secrets.PAT_FOR_SUBMODULE_UPDATES }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
