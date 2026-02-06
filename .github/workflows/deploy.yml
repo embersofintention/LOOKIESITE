@@ -33,7 +33,7 @@ jobs:
           chmod +x kiln          
 
       - name: Build Site
-        run: ls ./Vault && ./kiln generate \
+        run: ls && ./kiln generate \
           --input "./Vault" \
           --output "./public" \
           --url "https://inqacuga.github.io/LOOKIESITE" \
