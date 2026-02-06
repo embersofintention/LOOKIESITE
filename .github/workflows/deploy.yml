@@ -34,9 +34,11 @@ jobs:
 
       - name: Build Site
         run: ./kiln generate \
-          --input "./Vault" \
+          --input "./testVault" \
+          --output "./public" \
           --url "https://inqacuga.github.io/LOOKIESITE" \
-          --name "Lookie LvK Stuff"
+          --name "Lookie LvK Stuff" \
+          --theme "./testVault/kiln"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
