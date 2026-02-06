@@ -33,12 +33,10 @@ jobs:
           chmod +x kiln          
 
       - name: Build Site
-        run: mkdir public && ./kiln generate \
+        run: ./kiln generate \
           --input "./Vault" \
-          --output "./public" \
           --url "https://inqacuga.github.io/LOOKIESITE" \
-          --name "Lookie LvK Stuff" \
-          --theme "./Vault/kiln"
+          --name "Lookie LvK Stuff"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
