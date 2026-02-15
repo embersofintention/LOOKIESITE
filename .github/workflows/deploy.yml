@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive          # ← FIXED: was submodules-recursive
-          token: ${{ secrets.PAT_SUBMODULE }}
+          token: ${{ secrets.PAT_FOR_SUBMODULE_UPDATES }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -30,12 +30,10 @@ jobs:
       - name: Setup Kiln
         run: |
           curl -L -o kiln https://github.com/otaleghani/kiln/releases/download/v0.3.13/kiln_linux_amd64
-          chmod +x kiln      
-          
-      - name: Fix permissions
-        run: chmod -R 777 .
+          chmod +x kiln          
 
       - name: Build Site
+<<<<<<< HEAD
         run: |
           # Ensure the output directory is fresh and writable
           mkdir -p public
@@ -50,6 +48,14 @@ jobs:
             --url "https://embersofintention.github.io/LOOKIESITE" \
             --name "Lookie LvK Stuff" \
             --theme "./testVault/kiln"
+=======
+        run: ./kiln generate \
+          --input "./Vault" \
+          --output "./public" \
+          --url "https://embersofintention.github.io/LOOKIESITE" \
+          --name "Lookie LvK Stuff" \
+          --theme "./Vault/kiln"
+>>>>>>> parent of fbec415 (Update deploy.yml)
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
