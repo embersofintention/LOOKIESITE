@@ -30,7 +30,10 @@ jobs:
       - name: Setup Kiln
         run: |
           curl -L -o kiln https://github.com/otaleghani/kiln/releases/download/v0.3.13/kiln_linux_amd64
-          chmod +x kiln          
+          chmod +x kiln      
+          
+      - name: Fix permissions
+        run: chmod -R 777 .
 
       - name: Build Site
         run: ./kiln generate \
