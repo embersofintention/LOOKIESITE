@@ -36,12 +36,20 @@ jobs:
         run: chmod -R 777 .
 
       - name: Build Site
-        run: ./kiln generate \
-          --input "./testVault" \
-          --output "./public" \
-          --url "https://inqacuga.github.io/LOOKIESITE" \
-          --name "Lookie LvK Stuff" \
-          --theme "./testVault/kiln"
+        run: |
+          # Ensure the output directory is fresh and writable
+          mkdir -p public
+          
+          # Debug: Show me what's in the theme folder to ensure it's not empty
+          ls -R ./testVault/kiln
+          
+          # Execute Kiln
+          ./kiln generate \
+            --input "./testVault" \
+            --output "./public" \
+            --url "https://inqacuga.github.io/LOOKIESITE" \
+            --name "Lookie LvK Stuff" \
+            --theme "./testVault/kiln"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
