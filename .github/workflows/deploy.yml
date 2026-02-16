@@ -45,7 +45,7 @@ jobs:
           
           # Execute Kiln
           ./kiln generate \
-            --input "./testVault" \
+            --input "./Vault" \
             --output "./public" \
             --url "https://embersofintention.github.io/LOOKIESITE" \
             --name "Lookie LvK Stuff" \
