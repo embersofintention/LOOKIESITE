@@ -47,7 +47,7 @@ jobs:
           ./kiln generate \
             --input "./testVault" \
             --output "./public" \
-            --url "https://inqacuga.github.io/LOOKIESITE" \
+            --url "https://embersofintention.github.io/LOOKIESITE" \
             --name "Lookie LvK Stuff" \
             --theme "./testVault/kiln"
 
